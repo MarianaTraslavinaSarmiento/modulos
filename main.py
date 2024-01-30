@@ -4,6 +4,7 @@ import module.camper as camper
 import module.trainer as trainer
 import module.validate as validate
 
+
 def menu():
     print("Sistema de almacenamiento de datos para campus")
     print("\t1. Informacion del camper")
