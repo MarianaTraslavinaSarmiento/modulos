@@ -9,7 +9,8 @@ def menu():
     print("Sistema de almacenamiento de datos para campus")
     print("\t1. Informacion del camper")
     print("\t2. Informacion del trainer")
-    print("\t0. Exit")
+    print("\t3. Coordinación")
+    print("\t4. Exit")
 
 while True:
     menu()
