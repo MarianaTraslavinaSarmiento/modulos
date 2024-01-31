@@ -1,5 +1,7 @@
+
+import json
 from os import system
-from .data import camper, generos
+from .data import listacamper, generos
 from .validate import menuNoValid
 
 def save():
@@ -9,14 +11,17 @@ def save():
         "Edad": int(input("Ingrese la edad del camper: \n")),
         "Genero": input("Elija su genero:\n\t"+"\t".join([f"{generos.index(i)+1}. {i}\n" for i in sorted (generos)]))
     }
-    camper.append(info)
-    return print(f"Sucessfully Camper\n")
+    listacamper.append(info)
+    with open("module/storage/camper.json","w") as f:
+        data = json.dumps(listacamper, indent=4)
+        f.write(data)
+    return print("Sucessfully Camper\n")
 
 def edit():
     print("Edit to camper\n")
 
 def search():
-    print(camper)
+    print(listacamper)
     print("The camper is available\n")
 
 def delete():

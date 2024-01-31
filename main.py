@@ -1,4 +1,4 @@
-
+import json
 from os import system
 import module.camper as camper
 import module.trainer as trainer
@@ -17,6 +17,9 @@ while True:
 
     match (opc):
         case 1:
+
+            with open("module/storage/camper.json","r") as f:
+                camper.listacamper = json.loads(f.read())
             system("clear")
             camper.menu()
         case 2:
