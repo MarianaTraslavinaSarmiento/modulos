@@ -1,13 +1,27 @@
 from os import system
 from .validate import menuNoValid
+from .data import listatrainer, generos
+import json
 
 def save():
-    print("Sucessfully Trainer\n")
+    info = {
+            "Nombre": input("Ingrese el nombre del trainer: \n"),
+            "Apellido": input("Ingrese el apellido del trainer: \n"),
+            "Edad": int(input("Ingrese la edad del trainer: \n")),
+            "Genero": input("Elija su genero:\n\t"+"\t".join([f"{generos.index(i)+1}. {i}\n" for i in sorted (generos)]))
+        }    
+    listatrainer.append(info)
+    with open("module/storage/trainer.json","w") as f:
+        data = json.dumps(listatrainer, indent=4)
+        f.write(data)
+
+    return system("clear"), print("Sucessfully Camper\n")
 
 def edit():
     print("Edit to trainer\n")
 
 def search():
+    print(listatrainer)
     print("Trainer is available\n")
 
 def delete():

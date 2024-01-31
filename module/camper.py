@@ -15,7 +15,7 @@ def save():
     with open("module/storage/camper.json","w") as f:
         data = json.dumps(listacamper, indent=4)
         f.write(data)
-    return print("Sucessfully Camper\n")
+    return system("clear") , print("Sucessfully Camper\n")
 
 def edit():
     print("Edit to camper\n")

@@ -23,6 +23,9 @@ while True:
             system("clear")
             camper.menu()
         case 2:
+            with open("module/storage/trainer.json","r") as f:
+                camper.listatrainer = json.loads(f.read())
+
             system("clear")
             trainer.menu()
         case 0:
