@@ -1,8 +1,26 @@
 [
     {
-        "Nombre": "miguel",
-        "Apellido": "castro",
-        "Edad": 23,
-        "Genero": "2"
+        "Nombre": "mariana",
+        "Apellido": "traslavi\u00f1a",
+        "Edad": 16,
+        "Genero": "5"
+    },
+    {
+        "Nombre": "MARIANA",
+        "Apellido": "JAHSDK",
+        "Edad": 98,
+        "Genero": "4"
+    },
+    {
+        "Nombre": "KSJDH",
+        "Apellido": "SKJFH",
+        "Edad": 87,
+        "Genero": "3"
+    },
+    {
+        "Nombre": "AJKD",
+        "Apellido": "LAKSDJLKSA",
+        "Edad": 87,
+        "Genero": "1"
     }
 ]

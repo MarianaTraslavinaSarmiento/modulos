@@ -15,17 +15,115 @@ def save():
         data = json.dumps(listatrainer, indent=4)
         f.write(data)
 
-    return system("clear"), print("Sucessfully Camper\n")
+    return system("clear"), print("Sucessfully trainer\n")
 
 def edit():
-    print("Edit to trainer\n")
+    while True:
+        system("clear")
+        print("""
+            ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° 
+            °                                   °     
+            °     ACTUALIZACION  DE TRAINER     °
+            °                                   °
+            ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° °
+            """)
+        
+        codigo = int(input("Ingrese el código del trainer que deseas actualizar: "))
+        print(f""" 
+    ___________________________
+            
+    Codigo: {codigo}
+    Nombre: {listatrainer[codigo].get('Nombre')}
+    Apellido: {listatrainer[codigo].get('Apellido')}
+    Edad: {listatrainer[codigo].get('Edad')}
+    Género: {listatrainer[codigo].get('Genero')}
+    ___________________________
+    """)
+        
+        print("¿Este es el trainer que deseas actualizar?")
+
+        print("1. Si")
+        print("2. No")
+        print("3. Salir")
+        opc = int(input())
+        if opc == 1:
+            info = {
+                "Nombre": input("Ingrese el nombre del trainer: \n"),
+                "Apellido": input("Ingrese el apellido del trainer: \n"),
+                "Edad": int(input("Ingrese la edad del trainer: \n")),
+                "Genero": input("Elija su genero:\n\t"+"\t".join([f"{generos.index(i)+1}. {i}\n" for i in sorted (generos)]))
+            }
+                
+            listatrainer[codigo] = info 
+            with open("module/storage/trainer.json","w") as f:
+                data = json.dumps(listatrainer, indent=4)
+                f.write(data)
+            print("\nTRAINER ACTUALIZADO\n")
+            break
+             
+        elif(opc == 3): print("Edit to trainer")
+
+   
 
 def search():
-    print(listatrainer)
-    print("Trainer is available\n")
+    system("clear")
+    print("""
+          ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° °
+          °                             °     
+          °      LISTA DE TRAINERS      °
+          °                             °
+          ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° 
+          """)
+    for i,numeracion in enumerate(listatrainer):
+        
+        print(f"\nCódigo: {i}\n")
+        print(f"Nombre: {numeracion.get('Nombre')}")
+        print(f"Apellido: {numeracion.get('Apellido')}")
+        print(f"Edad: {numeracion.get('Edad')}")
+        print(f"Genero: {numeracion.get('Genero')}")
+        print("___________________")
+
+  
 
 def delete():
-    print("Trainer deleted\n")
+    while True:
+        system("clear")
+        print("""
+                    ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° 
+                    °                                   °     
+                    °     ELIMINACIÓN DE TRAINERS       °
+                    °                                   °
+                    ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° ° °
+                    """)
+        codigo = int(input("Ingrese el código del trainer que deseas eliminar: "))
+        print(f""" 
+            ___________________________
+                    
+            Codigo: {codigo}
+            Nombre: {listatrainer[codigo].get('Nombre')}
+            Apellido: {listatrainer[codigo].get('Apellido')}
+            Edad: {listatrainer[codigo].get('Edad')}
+            Género: {listatrainer[codigo].get('Genero')}
+            ___________________________
+            """)
+        print("¿Este es el trainer que deseas eliminar?")
+        print ("1. Si")
+        print ("2. No")
+        print ("3. Salir")
+        opc = int(input())
+
+        if opc == 1:
+            listatrainer.pop(codigo)
+            with open("module/storage/trainer.json","w") as f:
+                    data = json.dumps(listatrainer, indent=4)
+                    f.write(data)
+            print("\nTRAINER ELIMINADO\n")
+            break
+        elif opc == 2:
+            system("clear")
+        elif opc == 3:
+            break
+
 
 def menu():
     while True:
