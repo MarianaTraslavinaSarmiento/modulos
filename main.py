@@ -6,6 +6,7 @@ import module.validate as validate
 
 
 def menu():
+    system("clear")
     print("Sistema de almacenamiento de datos para campus")
     print("\t1. Informacion del camper")
     print("\t2. Informacion del trainer")
@@ -29,6 +30,8 @@ while True:
 
             system("clear")
             trainer.menu()
+        case 3:
+            system("clear")
         case 0:
             system("clear")
             break
